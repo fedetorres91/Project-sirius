@@ -25,6 +25,12 @@ class MedicalInfoService:
             extra_body={"chat_template_kwargs": {"enable_thinking": False}}
         )
         return completion.choices[0].message.content
+        
+    def get_medical_exams(self, file_name):
+        # upload files images to analyze
+
+        return 1
+
     
 def main():
     disease = input("Ask about a disease? ")
