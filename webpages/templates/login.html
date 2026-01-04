@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <div class="auth-container fade-in">
+        <div class="card">
+            <div class="card-header text-center">
+                <i class="bi bi-person-circle fs-1 mb-2 d-block"></i>
+                <h4 class="mb-0">Welcome Back</h4>
+                <small class="opacity-75">Sign in to your account</small>
+            </div>
+            <div class="card-body">
+                {% if message %}
+                    <div class="alert alert-danger" role="alert">
+                        <i class="bi bi-exclamation-triangle me-2"></i>{{ message }}
+                    </div>
+                {% endif %}
+                <form action="/login" method="post">
+                    <div class="mb-4">
+                        <label for="username" class="form-label"><i class="bi bi-person me-1"></i>Username</label>
+                        <input autocomplete="off" autofocus class="form-control" id="username" name="username" placeholder="Enter your username" type="text" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="password" class="form-label"><i class="bi bi-lock me-1"></i>Password</label>
+                        <input class="form-control" id="password" name="password" placeholder="Enter your password" type="password" required>
+                    </div>
+                    <div class="d-grid">
+                        <button class="btn btn-primary btn-lg" type="submit">
+                            <i class="bi bi-box-arrow-in-right me-2"></i>Log In
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-center bg-light py-3">
+                <span class="text-muted">Don't have an account?</span>
+                <a href="/register" class="text-decoration-none ms-1">Register here</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

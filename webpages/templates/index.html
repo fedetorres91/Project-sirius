@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block main %}
+    <div class="fade-in">
+        <!-- Page Header -->
+        <div class="page-header mb-4">
+            <h1><i class="bi bi-graph-up-arrow me-2"></i>My health</h1>
+            <p>Track your health info</p>
+        </div>
+
+        <!-- Portfolio Table -->
+        <div class="card">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th><i class="bi bi-tag me-1"></i>Symbol</th>
+                                <th><i class="bi bi-stack me-1"></i>Shares</th>
+                                <th>Cost Basis <span class="unbold">(per share)</span></th>
+                                <th><i class="bi bi-currency-dollar me-1"></i>Price</th>
+                                <th>Market Value</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for stock in user_stocks %}
+                                <tr>
+                                    <td><strong class="text-gradient">{{ stock.symbol }}</strong></td>
+                                    <td>{{ stock.qty }}</td>
+                                    <td>{{ stock.cost_basis| usd }} <small class="text-muted">({{ (stock.cost_basis/stock.qty)| usd }})</small></td>
+                                    <td>{{ stock.price| usd }}</td>
+                                    <td>{{ stock.mkt_value| usd }}</td>
+                                    <td><strong>{{ (stock.price*stock.qty)| usd }}</strong></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot class="table-footer">
+                            <tr>
+                                <td colspan="4"></td>
+                                <td class="text-end"><i class="bi bi-wallet2 me-1"></i>Cash</td>
+                                <td><strong>{{ cash| usd }}</strong></td>
+                            </tr>
+                            <tr class="table-primary">
+                                <td colspan="4"></td>
+                                <td class="text-end"><i class="bi bi-piggy-bank me-1"></i><strong>TOTAL</strong></td>
+                                <td><strong class="fs-5">{{ total| usd }}</strong></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
