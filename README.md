@@ -20,4 +20,3 @@ Questions to answer:
 program that analyzes db and plots data and saves csv files
 mental health app and marketing data
 
-# surfweather app?
