@@ -1,4 +1,4 @@
-Brainstorming. Final project CS50 python.
+Brainstorming. Final project CS50 python. I did not finish it, and isntead did a cli wallet app.
 
 
 WebApp: health info.
